@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             this.dataViewAll = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataSelectedMovie = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
@@ -43,35 +46,70 @@
             this.lblCompany = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblStock = new System.Windows.Forms.Label();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.lblID = new System.Windows.Forms.Label();
+            this.lblRev = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtRev = new System.Windows.Forms.TextBox();
+            this.txtYr = new System.Windows.Forms.TextBox();
+            this.txtDirector = new System.Windows.Forms.TextBox();
+            this.txtProducer = new System.Windows.Forms.TextBox();
+            this.txtComposer = new System.Windows.Forms.TextBox();
+            this.txtRuntime = new System.Windows.Forms.TextBox();
+            this.txtCompany = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtNoInStock = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSelectedMovie)).BeginInit();
             this.SuspendLayout();
             // 
             // dataViewAll
             // 
-            this.dataViewAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewAll.Location = new System.Drawing.Point(1, -1);
+            this.dataViewAll.ColumnHeadersHeight = 60;
+            this.dataViewAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataViewAll.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            this.dataViewAll.Location = new System.Drawing.Point(1, 12);
             this.dataViewAll.Name = "dataViewAll";
+            this.dataViewAll.RowHeadersWidth = 60;
             this.dataViewAll.RowTemplate.Height = 24;
-            this.dataViewAll.Size = new System.Drawing.Size(240, 624);
+            this.dataViewAll.Size = new System.Drawing.Size(296, 494);
             this.dataViewAll.TabIndex = 0;
             this.dataViewAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataViewAll_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Film DocumentID Name";
+            this.Column1.Name = "Column1";
             // 
             // dataSelectedMovie
             // 
             this.dataSelectedMovie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataSelectedMovie.Location = new System.Drawing.Point(245, -1);
+            this.dataSelectedMovie.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.Column2});
+            this.dataSelectedMovie.Location = new System.Drawing.Point(736, 12);
             this.dataSelectedMovie.Name = "dataSelectedMovie";
             this.dataSelectedMovie.RowTemplate.Height = 24;
-            this.dataSelectedMovie.Size = new System.Drawing.Size(553, 175);
+            this.dataSelectedMovie.Size = new System.Drawing.Size(471, 518);
             this.dataSelectedMovie.TabIndex = 1;
             this.dataSelectedMovie.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataSelectedMovie_CellContentClick);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Key";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Value";
+            this.Column2.Name = "Column2";
+            // 
             // createButton
             // 
-            this.createButton.Location = new System.Drawing.Point(1, 749);
+            this.createButton.Location = new System.Drawing.Point(1, 854);
             this.createButton.Name = "createButton";
-            this.createButton.Size = new System.Drawing.Size(155, 60);
+            this.createButton.Size = new System.Drawing.Size(296, 46);
             this.createButton.TabIndex = 2;
             this.createButton.Text = "Create";
             this.createButton.UseVisualStyleBackColor = true;
@@ -79,9 +117,9 @@
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(192, 749);
+            this.updateButton.Location = new System.Drawing.Point(372, 856);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(175, 60);
+            this.updateButton.Size = new System.Drawing.Size(269, 44);
             this.updateButton.TabIndex = 3;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
@@ -89,9 +127,9 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(396, 749);
+            this.deleteButton.Location = new System.Drawing.Point(674, 858);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(175, 60);
+            this.deleteButton.Size = new System.Drawing.Size(274, 43);
             this.deleteButton.TabIndex = 4;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -99,9 +137,9 @@
             // 
             // reloadDatabase
             // 
-            this.reloadDatabase.Location = new System.Drawing.Point(613, 749);
+            this.reloadDatabase.Location = new System.Drawing.Point(977, 856);
             this.reloadDatabase.Name = "reloadDatabase";
-            this.reloadDatabase.Size = new System.Drawing.Size(175, 60);
+            this.reloadDatabase.Size = new System.Drawing.Size(230, 46);
             this.reloadDatabase.TabIndex = 5;
             this.reloadDatabase.Text = "Reload Database";
             this.reloadDatabase.UseVisualStyleBackColor = true;
@@ -110,7 +148,7 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(261, 193);
+            this.lblTitle.Location = new System.Drawing.Point(343, 252);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(39, 17);
             this.lblTitle.TabIndex = 6;
@@ -119,7 +157,7 @@
             // lblYear
             // 
             this.lblYear.AutoSize = true;
-            this.lblYear.Location = new System.Drawing.Point(261, 244);
+            this.lblYear.Location = new System.Drawing.Point(343, 303);
             this.lblYear.Name = "lblYear";
             this.lblYear.Size = new System.Drawing.Size(42, 17);
             this.lblYear.TabIndex = 7;
@@ -128,7 +166,7 @@
             // lblDirector
             // 
             this.lblDirector.AutoSize = true;
-            this.lblDirector.Location = new System.Drawing.Point(261, 294);
+            this.lblDirector.Location = new System.Drawing.Point(336, 353);
             this.lblDirector.Name = "lblDirector";
             this.lblDirector.Size = new System.Drawing.Size(62, 17);
             this.lblDirector.TabIndex = 8;
@@ -137,7 +175,7 @@
             // lblProducer
             // 
             this.lblProducer.AutoSize = true;
-            this.lblProducer.Location = new System.Drawing.Point(261, 346);
+            this.lblProducer.Location = new System.Drawing.Point(336, 406);
             this.lblProducer.Name = "lblProducer";
             this.lblProducer.Size = new System.Drawing.Size(70, 17);
             this.lblProducer.TabIndex = 9;
@@ -146,7 +184,7 @@
             // lblComposer
             // 
             this.lblComposer.AutoSize = true;
-            this.lblComposer.Location = new System.Drawing.Point(261, 401);
+            this.lblComposer.Location = new System.Drawing.Point(331, 461);
             this.lblComposer.Name = "lblComposer";
             this.lblComposer.Size = new System.Drawing.Size(76, 17);
             this.lblComposer.TabIndex = 10;
@@ -155,7 +193,7 @@
             // lblRuntime
             // 
             this.lblRuntime.AutoSize = true;
-            this.lblRuntime.Location = new System.Drawing.Point(261, 457);
+            this.lblRuntime.Location = new System.Drawing.Point(331, 516);
             this.lblRuntime.Name = "lblRuntime";
             this.lblRuntime.Size = new System.Drawing.Size(93, 17);
             this.lblRuntime.TabIndex = 11;
@@ -164,7 +202,7 @@
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Location = new System.Drawing.Point(261, 516);
+            this.lblCompany.Location = new System.Drawing.Point(331, 577);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(71, 17);
             this.lblCompany.TabIndex = 12;
@@ -173,7 +211,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(261, 579);
+            this.lblPrice.Location = new System.Drawing.Point(331, 634);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(44, 17);
             this.lblPrice.TabIndex = 13;
@@ -182,17 +220,126 @@
             // lblStock
             // 
             this.lblStock.AutoSize = true;
-            this.lblStock.Location = new System.Drawing.Point(261, 635);
+            this.lblStock.Location = new System.Drawing.Point(323, 692);
             this.lblStock.Name = "lblStock";
             this.lblStock.Size = new System.Drawing.Size(116, 17);
             this.lblStock.TabIndex = 14;
             this.lblStock.Text = "Number In Stock:";
             // 
+            // txtTitle
+            // 
+            this.txtTitle.Location = new System.Drawing.Point(404, 252);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(269, 22);
+            this.txtTitle.TabIndex = 15;
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(343, 155);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(27, 17);
+            this.lblID.TabIndex = 16;
+            this.lblID.Text = "_id";
+            // 
+            // lblRev
+            // 
+            this.lblRev.AutoSize = true;
+            this.lblRev.Location = new System.Drawing.Point(343, 199);
+            this.lblRev.Name = "lblRev";
+            this.lblRev.Size = new System.Drawing.Size(36, 17);
+            this.lblRev.TabIndex = 17;
+            this.lblRev.Text = "_rev";
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(404, 152);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(269, 22);
+            this.txtID.TabIndex = 18;
+            // 
+            // txtRev
+            // 
+            this.txtRev.Location = new System.Drawing.Point(404, 199);
+            this.txtRev.Name = "txtRev";
+            this.txtRev.Size = new System.Drawing.Size(269, 22);
+            this.txtRev.TabIndex = 19;
+            // 
+            // txtYr
+            // 
+            this.txtYr.Location = new System.Drawing.Point(404, 303);
+            this.txtYr.Name = "txtYr";
+            this.txtYr.Size = new System.Drawing.Size(97, 22);
+            this.txtYr.TabIndex = 20;
+            // 
+            // txtDirector
+            // 
+            this.txtDirector.Location = new System.Drawing.Point(404, 353);
+            this.txtDirector.Name = "txtDirector";
+            this.txtDirector.Size = new System.Drawing.Size(269, 22);
+            this.txtDirector.TabIndex = 21;
+            // 
+            // txtProducer
+            // 
+            this.txtProducer.Location = new System.Drawing.Point(404, 406);
+            this.txtProducer.Name = "txtProducer";
+            this.txtProducer.Size = new System.Drawing.Size(269, 22);
+            this.txtProducer.TabIndex = 22;
+            // 
+            // txtComposer
+            // 
+            this.txtComposer.Location = new System.Drawing.Point(413, 461);
+            this.txtComposer.Name = "txtComposer";
+            this.txtComposer.Size = new System.Drawing.Size(260, 22);
+            this.txtComposer.TabIndex = 23;
+            // 
+            // txtRuntime
+            // 
+            this.txtRuntime.Location = new System.Drawing.Point(431, 516);
+            this.txtRuntime.Name = "txtRuntime";
+            this.txtRuntime.Size = new System.Drawing.Size(88, 22);
+            this.txtRuntime.TabIndex = 24;
+            // 
+            // txtCompany
+            // 
+            this.txtCompany.Location = new System.Drawing.Point(404, 577);
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.Size = new System.Drawing.Size(269, 22);
+            this.txtCompany.TabIndex = 25;
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Location = new System.Drawing.Point(391, 634);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(140, 22);
+            this.txtPrice.TabIndex = 26;
+            // 
+            // txtNoInStock
+            // 
+            this.txtNoInStock.Location = new System.Drawing.Point(445, 692);
+            this.txtNoInStock.Name = "txtNoInStock";
+            this.txtNoInStock.Size = new System.Drawing.Size(165, 22);
+            this.txtNoInStock.TabIndex = 27;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 811);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1209, 902);
+            this.Controls.Add(this.txtNoInStock);
+            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.txtCompany);
+            this.Controls.Add(this.txtRuntime);
+            this.Controls.Add(this.txtComposer);
+            this.Controls.Add(this.txtProducer);
+            this.Controls.Add(this.txtDirector);
+            this.Controls.Add(this.txtYr);
+            this.Controls.Add(this.txtRev);
+            this.Controls.Add(this.txtID);
+            this.Controls.Add(this.lblRev);
+            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.lblStock);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblCompany);
@@ -235,6 +382,22 @@
         private System.Windows.Forms.Label lblCompany;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblStock;
+        private System.Windows.Forms.TextBox txtTitle;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblRev;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtRev;
+        private System.Windows.Forms.TextBox txtYr;
+        private System.Windows.Forms.TextBox txtDirector;
+        private System.Windows.Forms.TextBox txtProducer;
+        private System.Windows.Forms.TextBox txtComposer;
+        private System.Windows.Forms.TextBox txtRuntime;
+        private System.Windows.Forms.TextBox txtCompany;
+        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.TextBox txtNoInStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 
