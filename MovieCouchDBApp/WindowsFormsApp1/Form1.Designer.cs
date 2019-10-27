@@ -59,8 +59,14 @@
             this.txtCompany = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtNoInStock = new System.Windows.Forms.TextBox();
+            this.grdDataViewChoice = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblDoc = new System.Windows.Forms.Label();
+            this.txtDoc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSelectedMovie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDataViewChoice)).BeginInit();
             this.SuspendLayout();
             // 
             // dataViewAll
@@ -236,7 +242,7 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(343, 155);
+            this.lblID.Location = new System.Drawing.Point(343, 93);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(27, 17);
             this.lblID.TabIndex = 16;
@@ -245,7 +251,7 @@
             // lblRev
             // 
             this.lblRev.AutoSize = true;
-            this.lblRev.Location = new System.Drawing.Point(343, 199);
+            this.lblRev.Location = new System.Drawing.Point(343, 137);
             this.lblRev.Name = "lblRev";
             this.lblRev.Size = new System.Drawing.Size(36, 17);
             this.lblRev.TabIndex = 17;
@@ -253,14 +259,14 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(404, 152);
+            this.txtID.Location = new System.Drawing.Point(404, 90);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(269, 22);
             this.txtID.TabIndex = 18;
             // 
             // txtRev
             // 
-            this.txtRev.Location = new System.Drawing.Point(404, 199);
+            this.txtRev.Location = new System.Drawing.Point(404, 137);
             this.txtRev.Name = "txtRev";
             this.txtRev.Size = new System.Drawing.Size(269, 22);
             this.txtRev.TabIndex = 19;
@@ -321,12 +327,53 @@
             this.txtNoInStock.Size = new System.Drawing.Size(165, 22);
             this.txtNoInStock.TabIndex = 27;
             // 
+            // grdDataViewChoice
+            // 
+            this.grdDataViewChoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdDataViewChoice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column3,
+            this.Column4});
+            this.grdDataViewChoice.Location = new System.Drawing.Point(1, 541);
+            this.grdDataViewChoice.Name = "grdDataViewChoice";
+            this.grdDataViewChoice.RowTemplate.Height = 24;
+            this.grdDataViewChoice.Size = new System.Drawing.Size(296, 150);
+            this.grdDataViewChoice.TabIndex = 28;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Key";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Value";
+            this.Column4.Name = "Column4";
+            // 
+            // lblDoc
+            // 
+            this.lblDoc.AutoSize = true;
+            this.lblDoc.Location = new System.Drawing.Point(323, 190);
+            this.lblDoc.Name = "lblDoc";
+            this.lblDoc.Size = new System.Drawing.Size(69, 17);
+            this.lblDoc.TabIndex = 29;
+            this.lblDoc.Text = "DocType:";
+            // 
+            // txtDoc
+            // 
+            this.txtDoc.Location = new System.Drawing.Point(404, 185);
+            this.txtDoc.Name = "txtDoc";
+            this.txtDoc.Size = new System.Drawing.Size(269, 22);
+            this.txtDoc.TabIndex = 30;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1209, 902);
+            this.Controls.Add(this.txtDoc);
+            this.Controls.Add(this.lblDoc);
+            this.Controls.Add(this.grdDataViewChoice);
             this.Controls.Add(this.txtNoInStock);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.txtCompany);
@@ -360,6 +407,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataViewAll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSelectedMovie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDataViewChoice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,6 +446,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridView grdDataViewChoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Label lblDoc;
+        private System.Windows.Forms.TextBox txtDoc;
     }
 }
 

@@ -15,12 +15,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.ObjectModel;
+using System.Collections;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-      
+        string link = "http://localhost:5984/";
+        string databaseName = "movies";
+
+
 
       
         public Form1()
@@ -35,7 +40,7 @@ namespace WindowsFormsApp1
         {
             dataViewAll.Rows.Clear();
 
-            using (var dbClient = new MyCouchClient("http://localhost:5984/", "movies"))
+            using (var dbClient = new MyCouchClient(link, databaseName))
             {
                 var dbQuery = new QueryViewRequest("_all_docs");
                 var responseDB = await dbClient.Views.QueryAsync<dynamic>(dbQuery);
@@ -53,12 +58,34 @@ namespace WindowsFormsApp1
 
         }
 
+        /*private async void GetMapReduce()
+        {
+            grdDataViewChoice.Rows.Clear();
+
+            using (var dbClient = new MyCouchClient(link, databaseName))
+            {
+                var dbQuery = new QueryViewRequest("_design/Movies");
+                var responseDB = await dbClient.Views.QueryAsync<dynamic>(dbQuery);
+                dynamic array = responseDB.Rows.ToArray();
+
+                foreach (var keyValue in array)
+                {
+                    grdDataViewChoice.Rows.Add(keyValue.Key.ToString());
+                    MessageBox.Show(keyValue.Key.ToString() + ":" + keyValue.Value.ToString(), "Film Documents IDs", MessageBoxButtons.OK);
+                }
+
+                grdDataViewChoice.AutoResizeColumns();
+                grdDataViewChoice.AutoResizeRows();
+            }
+
+        }*/
+
 
         private void GetAndReadChosenDoc(string documentID)
         {
             dataSelectedMovie.Rows.Clear();
 
-            using (var dbClient = new MyCouchClient("http://localhost:5984/", "movies"))
+            using (var dbClient = new MyCouchClient(link, databaseName))
             {
                 var getDocResponse = dbClient.Documents.GetAsync(documentID);
 
@@ -88,35 +115,82 @@ namespace WindowsFormsApp1
         }
 
 
-       private async void formNewMovie()
+        private async void formNewMovie()
         {
-            /* using (var dbClient = new MyCouchClient("http://localhost:5984/", "movies"))
+          using (var dbClient = new MyCouchClient(link, databaseName))
             {
-                var dbObject = new DataObject
-                {
-                    _id = txtID.Text,
-                    title = txtTitle.Text,
-                    year = int.Parse(txtYr.Text),
-                    director = txtDirector.Text,
-                    producer = txtProducer.Text,
-                    composer = txtComposer.Text,
-                    runtimeInMinutes = int.Parse(txtRuntime.Text),
-                    company = txtCompany.Text,
-                    price = int.Parse(txtPrice.Text),
-                    numberInStock = int.Parse(txtNoInStock.Text)
-                };
+                /*var dbObject = new DataObject
 
-                var response = await dbClient.Entities.PostAsync(dbObject);
+                  (_id = txtID.Text,
+                   title = txtTitle.Text,
+                   year = int.Parse(txtYr.Text),
+                   director = txtDirector.Text,
+                   producer = txtProducer.Text,
+                   composer = txtComposer.Text,
+                   runtimeInMinutes = int.Parse(txtRuntime.Text),
+                   company = txtCompany.Text,
+                   price = int.Parse(txtPrice.Text),
+                   numberInStock = int.Parse(txtNoInStock.Text));*/
+
+               /* var dbObject = new DataObject
+                   (txtID.Text,
+                   txtTitle.Text,
+                    int.Parse(txtYr.Text),
+                   txtDirector.Text,
+                  txtProducer.Text,
+                   txtComposer.Text,
+                   int.Parse(txtRuntime.Text),
+                   txtCompany.Text,
+                   int.Parse(txtPrice.Text),
+                    int.Parse(txtNoInStock.Text));*/
+
+                /*Movie movieObject = new Movie(txtID.Text,
+                    txtTitle.Text,
+                   int.Parse(txtYr.Text),
+                    txtDirector.Text,
+                     txtProducer.Text,
+                    txtComposer.Text,
+                    int.Parse(txtRuntime.Text),
+                     txtCompany.Text,
+                     int.Parse(txtPrice.Text),
+                     int.Parse(txtNoInStock.Text));*/
+
+
+               var filmObject = new DataObject("{\"_id\":\"" + txtID.Text + "\"," +
+                    "title\":\"" + txtTitle.Text + "\"," +
+                     "year\":\"" + txtYr.Text + "\"," +
+                      "director\":\"" + txtDirector.Text + "\"," +
+                       "producer\":\"" + txtProducer.Text + "\"," +
+                          "composer\":\"" + txtComposer.Text + "\"," +
+                             "runtimeinminutes\":\"" + txtRuntime.Text + "\"," +
+                                "company\":\"" + txtCompany.Text + "\"," +
+                                 "price\":\"" + txtPrice.Text + "\"," +
+                                 "numberinstock\":\"" + txtNoInStock.Text + "\"}");
+
+
+
+
+               //var dbObject = new DataObject("movie",movieObject);
+
+               // var dbObject = new DataObject("movie", filmObject);
+
+
+                 //var response = await dbClient.Entities.PostAsync(dbObject);
+
+                 var response = await dbClient.Entities.PostAsync(filmObject);        
+
 
             }
+
             GetEveryDoc();
-       */
         }
+            
+        
 
 
         private async void updateMovieDocument(string movieDocument)
         {
-            using (var dbClient = new MyCouchClient("http://localhost:5984/", "movies"))
+            using (var dbClient = new MyCouchClient(link, databaseName))
             {
                 var dbObject = "{\"_id\":\"" + movieDocument + "\"," +
                     "_rev\":\"" + txtRev.Text + "\"," +
@@ -141,7 +215,7 @@ namespace WindowsFormsApp1
 
         private async void deleteMovie(string filmID, string revNo)
         {
-            using (var dbClient = new MyCouchClient("http://localhost:5984/", "movies"))
+            using (var dbClient = new MyCouchClient(link, databaseName))
             {
                 await dbClient.Documents.DeleteAsync(filmID,revNo);
             }
@@ -152,7 +226,9 @@ namespace WindowsFormsApp1
 
         private void reloadDatabase_Click(object sender, EventArgs e)
         {
+            //GetMapReduce();
             GetEveryDoc();
+           
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
