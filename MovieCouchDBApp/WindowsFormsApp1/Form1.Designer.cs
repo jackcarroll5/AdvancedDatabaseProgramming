@@ -64,6 +64,7 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDoc = new System.Windows.Forms.Label();
             this.txtDoc = new System.Windows.Forms.TextBox();
+            this.radMapRedView = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSelectedMovie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDataViewChoice)).BeginInit();
@@ -81,7 +82,7 @@
             this.dataViewAll.RowTemplate.Height = 24;
             this.dataViewAll.Size = new System.Drawing.Size(296, 494);
             this.dataViewAll.TabIndex = 0;
-            this.dataViewAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataViewAll_CellContentClick);
+            this.dataViewAll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataViewAll_CellContentClick);
             // 
             // Column1
             // 
@@ -99,7 +100,7 @@
             this.dataSelectedMovie.RowTemplate.Height = 24;
             this.dataSelectedMovie.Size = new System.Drawing.Size(471, 518);
             this.dataSelectedMovie.TabIndex = 1;
-            this.dataSelectedMovie.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataSelectedMovie_CellContentClick);
+            this.dataSelectedMovie.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataSelectedMovie_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -129,7 +130,7 @@
             this.updateButton.TabIndex = 3;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
-            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // deleteButton
             // 
@@ -139,7 +140,7 @@
             this.deleteButton.TabIndex = 4;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // reloadDatabase
             // 
@@ -149,12 +150,12 @@
             this.reloadDatabase.TabIndex = 5;
             this.reloadDatabase.Text = "Reload Database";
             this.reloadDatabase.UseVisualStyleBackColor = true;
-            this.reloadDatabase.Click += new System.EventHandler(this.reloadDatabase_Click);
+            this.reloadDatabase.Click += new System.EventHandler(this.ReloadDatabase_Click);
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(343, 252);
+            this.lblTitle.Location = new System.Drawing.Point(376, 212);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(39, 17);
             this.lblTitle.TabIndex = 6;
@@ -163,7 +164,7 @@
             // lblYear
             // 
             this.lblYear.AutoSize = true;
-            this.lblYear.Location = new System.Drawing.Point(343, 303);
+            this.lblYear.Location = new System.Drawing.Point(376, 263);
             this.lblYear.Name = "lblYear";
             this.lblYear.Size = new System.Drawing.Size(42, 17);
             this.lblYear.TabIndex = 7;
@@ -172,7 +173,7 @@
             // lblDirector
             // 
             this.lblDirector.AutoSize = true;
-            this.lblDirector.Location = new System.Drawing.Point(336, 353);
+            this.lblDirector.Location = new System.Drawing.Point(369, 313);
             this.lblDirector.Name = "lblDirector";
             this.lblDirector.Size = new System.Drawing.Size(62, 17);
             this.lblDirector.TabIndex = 8;
@@ -181,7 +182,7 @@
             // lblProducer
             // 
             this.lblProducer.AutoSize = true;
-            this.lblProducer.Location = new System.Drawing.Point(336, 406);
+            this.lblProducer.Location = new System.Drawing.Point(369, 366);
             this.lblProducer.Name = "lblProducer";
             this.lblProducer.Size = new System.Drawing.Size(70, 17);
             this.lblProducer.TabIndex = 9;
@@ -190,7 +191,7 @@
             // lblComposer
             // 
             this.lblComposer.AutoSize = true;
-            this.lblComposer.Location = new System.Drawing.Point(331, 461);
+            this.lblComposer.Location = new System.Drawing.Point(364, 421);
             this.lblComposer.Name = "lblComposer";
             this.lblComposer.Size = new System.Drawing.Size(76, 17);
             this.lblComposer.TabIndex = 10;
@@ -199,7 +200,7 @@
             // lblRuntime
             // 
             this.lblRuntime.AutoSize = true;
-            this.lblRuntime.Location = new System.Drawing.Point(331, 516);
+            this.lblRuntime.Location = new System.Drawing.Point(364, 476);
             this.lblRuntime.Name = "lblRuntime";
             this.lblRuntime.Size = new System.Drawing.Size(93, 17);
             this.lblRuntime.TabIndex = 11;
@@ -208,7 +209,7 @@
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Location = new System.Drawing.Point(331, 577);
+            this.lblCompany.Location = new System.Drawing.Point(364, 537);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(71, 17);
             this.lblCompany.TabIndex = 12;
@@ -217,7 +218,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(331, 634);
+            this.lblPrice.Location = new System.Drawing.Point(364, 594);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(44, 17);
             this.lblPrice.TabIndex = 13;
@@ -226,7 +227,7 @@
             // lblStock
             // 
             this.lblStock.AutoSize = true;
-            this.lblStock.Location = new System.Drawing.Point(323, 692);
+            this.lblStock.Location = new System.Drawing.Point(356, 640);
             this.lblStock.Name = "lblStock";
             this.lblStock.Size = new System.Drawing.Size(116, 17);
             this.lblStock.TabIndex = 14;
@@ -234,7 +235,7 @@
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(404, 252);
+            this.txtTitle.Location = new System.Drawing.Point(437, 212);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(269, 22);
             this.txtTitle.TabIndex = 15;
@@ -242,7 +243,7 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(343, 93);
+            this.lblID.Location = new System.Drawing.Point(376, 53);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(27, 17);
             this.lblID.TabIndex = 16;
@@ -251,7 +252,7 @@
             // lblRev
             // 
             this.lblRev.AutoSize = true;
-            this.lblRev.Location = new System.Drawing.Point(343, 137);
+            this.lblRev.Location = new System.Drawing.Point(376, 97);
             this.lblRev.Name = "lblRev";
             this.lblRev.Size = new System.Drawing.Size(36, 17);
             this.lblRev.TabIndex = 17;
@@ -259,70 +260,70 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(404, 90);
+            this.txtID.Location = new System.Drawing.Point(437, 50);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(269, 22);
             this.txtID.TabIndex = 18;
             // 
             // txtRev
             // 
-            this.txtRev.Location = new System.Drawing.Point(404, 137);
+            this.txtRev.Location = new System.Drawing.Point(437, 97);
             this.txtRev.Name = "txtRev";
             this.txtRev.Size = new System.Drawing.Size(269, 22);
             this.txtRev.TabIndex = 19;
             // 
             // txtYr
             // 
-            this.txtYr.Location = new System.Drawing.Point(404, 303);
+            this.txtYr.Location = new System.Drawing.Point(437, 263);
             this.txtYr.Name = "txtYr";
             this.txtYr.Size = new System.Drawing.Size(97, 22);
             this.txtYr.TabIndex = 20;
             // 
             // txtDirector
             // 
-            this.txtDirector.Location = new System.Drawing.Point(404, 353);
+            this.txtDirector.Location = new System.Drawing.Point(437, 313);
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(269, 22);
             this.txtDirector.TabIndex = 21;
             // 
             // txtProducer
             // 
-            this.txtProducer.Location = new System.Drawing.Point(404, 406);
+            this.txtProducer.Location = new System.Drawing.Point(437, 366);
             this.txtProducer.Name = "txtProducer";
             this.txtProducer.Size = new System.Drawing.Size(269, 22);
             this.txtProducer.TabIndex = 22;
             // 
             // txtComposer
             // 
-            this.txtComposer.Location = new System.Drawing.Point(413, 461);
+            this.txtComposer.Location = new System.Drawing.Point(446, 421);
             this.txtComposer.Name = "txtComposer";
             this.txtComposer.Size = new System.Drawing.Size(260, 22);
             this.txtComposer.TabIndex = 23;
             // 
             // txtRuntime
             // 
-            this.txtRuntime.Location = new System.Drawing.Point(431, 516);
+            this.txtRuntime.Location = new System.Drawing.Point(464, 476);
             this.txtRuntime.Name = "txtRuntime";
             this.txtRuntime.Size = new System.Drawing.Size(88, 22);
             this.txtRuntime.TabIndex = 24;
             // 
             // txtCompany
             // 
-            this.txtCompany.Location = new System.Drawing.Point(404, 577);
+            this.txtCompany.Location = new System.Drawing.Point(437, 537);
             this.txtCompany.Name = "txtCompany";
             this.txtCompany.Size = new System.Drawing.Size(269, 22);
             this.txtCompany.TabIndex = 25;
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(391, 634);
+            this.txtPrice.Location = new System.Drawing.Point(424, 594);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(140, 22);
             this.txtPrice.TabIndex = 26;
             // 
             // txtNoInStock
             // 
-            this.txtNoInStock.Location = new System.Drawing.Point(445, 692);
+            this.txtNoInStock.Location = new System.Drawing.Point(478, 640);
             this.txtNoInStock.Name = "txtNoInStock";
             this.txtNoInStock.Size = new System.Drawing.Size(165, 22);
             this.txtNoInStock.TabIndex = 27;
@@ -333,10 +334,10 @@
             this.grdDataViewChoice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column3,
             this.Column4});
-            this.grdDataViewChoice.Location = new System.Drawing.Point(1, 541);
+            this.grdDataViewChoice.Location = new System.Drawing.Point(1, 544);
             this.grdDataViewChoice.Name = "grdDataViewChoice";
             this.grdDataViewChoice.RowTemplate.Height = 24;
-            this.grdDataViewChoice.Size = new System.Drawing.Size(296, 150);
+            this.grdDataViewChoice.Size = new System.Drawing.Size(349, 181);
             this.grdDataViewChoice.TabIndex = 28;
             // 
             // Column3
@@ -352,7 +353,7 @@
             // lblDoc
             // 
             this.lblDoc.AutoSize = true;
-            this.lblDoc.Location = new System.Drawing.Point(323, 190);
+            this.lblDoc.Location = new System.Drawing.Point(356, 150);
             this.lblDoc.Name = "lblDoc";
             this.lblDoc.Size = new System.Drawing.Size(69, 17);
             this.lblDoc.TabIndex = 29;
@@ -360,10 +361,22 @@
             // 
             // txtDoc
             // 
-            this.txtDoc.Location = new System.Drawing.Point(404, 185);
+            this.txtDoc.Location = new System.Drawing.Point(437, 145);
             this.txtDoc.Name = "txtDoc";
             this.txtDoc.Size = new System.Drawing.Size(269, 22);
             this.txtDoc.TabIndex = 30;
+            // 
+            // radMapRedView
+            // 
+            this.radMapRedView.AutoSize = true;
+            this.radMapRedView.Location = new System.Drawing.Point(82, 748);
+            this.radMapRedView.Name = "radMapRedView";
+            this.radMapRedView.Size = new System.Drawing.Size(142, 21);
+            this.radMapRedView.TabIndex = 31;
+            this.radMapRedView.TabStop = true;
+            this.radMapRedView.Text = "View MapReduce ";
+            this.radMapRedView.UseVisualStyleBackColor = true;
+            this.radMapRedView.CheckedChanged += new System.EventHandler(this.radMapRedView_CheckedChanged);
             // 
             // Form1
             // 
@@ -371,6 +384,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1209, 902);
+            this.Controls.Add(this.radMapRedView);
             this.Controls.Add(this.txtDoc);
             this.Controls.Add(this.lblDoc);
             this.Controls.Add(this.grdDataViewChoice);
@@ -451,6 +465,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Label lblDoc;
         private System.Windows.Forms.TextBox txtDoc;
+        private System.Windows.Forms.RadioButton radMapRedView;
     }
 }
 
