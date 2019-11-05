@@ -135,7 +135,7 @@ namespace WindowsFormsApp1
 				{
 					grdDataViewChoice.Rows.Add(keyValue.Key.ToString() + ":", keyValue.Value.ToString());   
 					
-					MessageBox.Show(keyValue.Key.ToString() + ":" + keyValue.Value.ToString(), "MapReduce", MessageBoxButtons.OK);
+					MessageBox.Show(keyValue.Key.ToString() + ":" + keyValue.Value.ToString(), "Number of Movies published by a film company - MapReduce", MessageBoxButtons.OK);
 				}
 				grdDataViewChoice.AutoResizeColumns();
 				grdDataViewChoice.AutoResizeRows();
@@ -304,6 +304,18 @@ namespace WindowsFormsApp1
 		{
 
 			UpdateMovieDocument(dataViewAll.CurrentCell.Value.ToString());
+
+			txtID.Clear();
+			txtRev.Clear();
+			txtTitle.Clear();
+			txtYr.Clear();
+			txtDirector.Clear();
+			txtProducer.Clear();
+			txtComposer.Clear();
+			txtRuntime.Clear();
+			txtCompany.Clear();
+			txtPrice.Clear();
+			txtNoInStock.Clear();
 
 		}
 
